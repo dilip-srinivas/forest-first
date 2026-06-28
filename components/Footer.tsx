@@ -39,7 +39,7 @@ export default function Footer() {
               Forest First
             </h3>
             <p className="text-sm text-sand/60 leading-relaxed font-light mb-6 max-w-sm">
-              An ecological preservation and restoration initiative of The Heritage Foundation. Dedicated to securing natural heritage, native ecosystems, and public watersheds.
+              Forest First is a registered ecological restoration initiative wholly operated and governed by The Heritage Foundation.
             </p>
             <span className="text-xs text-sand/40 block">
               © {new Date().getFullYear()} The Heritage Foundation. All rights reserved.
@@ -127,14 +127,17 @@ export default function Footer() {
         {/* Legal disclosures & compliance footer bar */}
         <div className="border-t border-moss/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-sand/40">
           <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center md:justify-start">
-            <a href="#" className="hover:text-sand/70 transition-colors">
+            <a href="https://the-heritage.org/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-sand/70 transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-sand/70 transition-colors">
+            <a href="https://the-heritage.org/terms" target="_blank" rel="noopener noreferrer" className="hover:text-sand/70 transition-colors">
               Terms of Custody
             </a>
-            <a href="#" className="hover:text-sand/70 transition-colors">
+            <a href="https://the-heritage.org/scientific-data" target="_blank" rel="noopener noreferrer" className="hover:text-sand/70 transition-colors">
               Scientific Data Disclosures
+            </a>
+            <a href="https://the-heritage.org/disclosures.html" target="_blank" rel="noopener noreferrer" className="hover:text-sand/70 transition-colors">
+              Institutional Disclosures
             </a>
           </div>
           <p className="text-center md:text-right max-w-md leading-relaxed font-light">

@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Pillar1 from "@/components/Pillar1";
 import Pillar2 from "@/components/Pillar2";
@@ -9,6 +10,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
+      <Navbar />
       {/* Semantic Main Content Section */}
       <main className="flex-grow w-full">
         <Hero />
