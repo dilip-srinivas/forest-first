@@ -50,7 +50,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm text-sand/60 leading-relaxed font-light mb-4 max-w-sm">
-              Forest First is a registered ecological restoration initiative wholly operated and governed by The Heritage Foundation.
+              Forest First is an ecological restoration initiative wholly operated and governed by The Heritage Foundation, a registered public charitable trust (12A/80G), Kotagiri, The Nilgiris, Tamil Nadu.
             </p>
             <div className="text-xs text-sand/40 leading-relaxed font-light mb-6 max-w-sm border-l border-moss/30 pl-4 py-1">
               <span className="block font-semibold text-moss">The Heritage Foundation</span>
