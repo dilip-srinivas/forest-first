@@ -18,8 +18,33 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Forest First | An Initiative of The Heritage Foundation",
-  description: "Forest First is an ecological restoration and environmental justice initiative of The Heritage Foundation, focused on Private Land Restoration, Shola & Grassland Recovery, Public Land Policy, and Investigative Advocacy.",
+  title: "Forest First | Ecological Restoration, Western Ghats",
+  description: "Forest First protects and restores shola forests, native grasslands, and wildlife corridors in the Nilgiris and Western Ghats. An initiative of The Heritage Foundation (12A/80G).",
+  metadataBase: new URL("https://forestfirst.org"),
+  openGraph: {
+    title: "Forest First | Ecological Restoration, Western Ghats",
+    description: "Forest First protects and restores shola forests, native grasslands, and wildlife corridors in the Nilgiris and Western Ghats. An initiative of The Heritage Foundation (12A/80G).",
+    url: "https://forestfirst.org",
+    siteName: "Forest First",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Forest First | Ecological Restoration, Western Ghats",
+    description: "Forest First protects and restores shola forests, native grasslands, and wildlife corridors in the Nilgiris and Western Ghats. An initiative of The Heritage Foundation (12A/80G).",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
