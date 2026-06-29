@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scientific Data Disclosures | Forest First</title>
+  <meta name="description" content="Scientific data disclosure framework for Forest First ecological monitoring and restoration programmes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #141414;
+      --border: #222;
+      --text: #d4d4d4;
+      --text-muted: #737373;
+      --accent: #4a7c59;
+      --accent-light: #6aab7d;
+      --white: #f5f5f5;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    nav a.brand {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--white);
+      text-decoration: none;
+    }
+    nav a.parent {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-left: 1px solid var(--border);
+      padding-left: 1.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    nav a.parent:hover { color: var(--accent-light); }
+
+    .hero {
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 2rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      max-width: 600px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .content section {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .content section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .content h2 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .content p {
+      color: var(--text);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .content p:last-child { margin-bottom: 0; }
+    .content ul {
+      padding-left: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .content ul li {
+      color: var(--text);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .content a {
+      color: var(--accent-light);
+      text-decoration: none;
+    }
+    .content a:hover { text-decoration: underline; }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      border: 1px solid var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Data type grid */
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+    .data-card {
+      background: var(--surface);
+      padding: 1.25rem;
+    }
+    .data-card .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 0.5rem;
+    }
+    .data-card .name {
+      font-size: 0.95rem;
+      color: var(--white);
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    .data-card .desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Status table */
+    .status-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.88rem;
+    }
+    .status-table th {
+      text-align: left;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .status-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .status-table tr:last-child td { border-bottom: none; }
+    .badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .badge.active { background: rgba(74, 124, 89, 0.2); color: var(--accent-light); }
+    .badge.planned { background: rgba(115, 115, 115, 0.15); color: var(--text-muted); }
+    .badge.ongoing { background: rgba(180, 140, 60, 0.15); color: #c8a84b; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+    }
+    footer p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    footer a { color: var(--accent-light); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      nav, .hero, .content { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .data-grid { grid-template-columns: 1fr; }
+      .status-table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" target="_parent" href="/">Forest First</a>
+  <a class="parent" target="_blank" rel="noopener noreferrer" href="https://the-heritage.org">The Heritage Foundation ↗</a>
+</nav>
+
+<div class="hero">
+  <p class="eyebrow">Transparency</p>
+  <h1>Scientific Data<br/>Disclosures</h1>
+  <p>This page describes what ecological data Forest First collects, how it is verified, and how it is made available to contributors, researchers, and the public.</p>
+</div>
+
+<div class="content">
+
+  <section>
+    <div class="tag">Principles</div>
+    <h2>Our Data Commitment</h2>
+    <p>Forest First operates on a principle of ecological honesty: we disclose what we measure, how we measure it, and where our data has gaps. We do not publish unverified claims. Where baselines are incomplete or monitoring is in early stages, we say so.</p>
+    <p>All quantitative claims on this website (hectares targeted, species counts, watershed metrics) are drawn from internal field assessments or published secondary literature. Sources are cited in our annual field reports.</p>
+  </section>
+
+  <section>
+    <div class="tag">Data Types</div>
+    <h2>What We Measure</h2>
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="label">Biodiversity</div>
+        <div class="name">Flora & Fauna Surveys</div>
+        <div class="desc">Annual transect surveys for woody flora, ground-layer species, and vertebrate fauna on acquired and restored parcels.</div>
+      </div>
+      <div class="data-card">
+        <div class="label">Hydrology</div>
+        <div class="name">Stream Flow & Soil Moisture</div>
+        <div class="desc">Seasonal stream flow monitoring and soil moisture indices in restored grassland and shola edge zones.</div>
+      </div>
+      <div class="data-card">
+        <div class="label">Restoration</div>
+        <div class="name">Native Canopy Recovery</div>
+        <div class="desc">Crown cover progression, native seedling establishment rates, and exotic species suppression across active restoration sites.</div>
+      </div>
+      <div class="data-card">
+        <div class="label">Land</div>
+        <div class="name">GIS Parcel Mapping</div>
+        <div class="desc">Georeferenced boundary audits, land-use history mapping, and ecological sensitivity scoring for acquired parcels.</div>
+      </div>
+      <div class="data-card">
+        <div class="label">Carbon</div>
+        <div class="name">Above-Ground Biomass</div>
+        <div class="desc">Biomass estimation using allometric equations for native species. Carbon sequestration figures are indicative, not certified.</div>
+      </div>
+      <div class="data-card">
+        <div class="label">Wildlife</div>
+        <div class="name">Camera Trap Records</div>
+        <div class="desc">Deployed across active sites to monitor corridor usage by mammals. Data shared with academic partners.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="tag">Monitoring Status</div>
+    <h2>Current Programme Status</h2>
+    <table class="status-table">
+      <thead>
+        <tr>
+          <th>Programme</th>
+          <th>Status</th>
+          <th>Data Availability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Forest Department MOU Sites (60 acres)</td>
+          <td><span class="badge active">Active</span></td>
+          <td>Annual reports to contributors; summary data public</td>
+        </tr>
+        <tr>
+          <td>Invasive Species Removal (Acacia / Eucalyptus)</td>
+          <td><span class="badge ongoing">Ongoing</span></td>
+          <td>Clearance maps available on request</td>
+        </tr>
+        <tr>
+          <td>Native Grassland Recovery Baseline</td>
+          <td><span class="badge ongoing">Ongoing</span></td>
+          <td>Baseline being established; report expected 2026</td>
+        </tr>
+        <tr>
+          <td>Wildlife Corridor Camera Traps</td>
+          <td><span class="badge planned">Planned</span></td>
+          <td>Deployment Q3 2026; data from Q4 2026</td>
+        </tr>
+        <tr>
+          <td>Soil Carbon Measurement</td>
+          <td><span class="badge planned">Planned</span></td>
+          <td>Academic collaboration pending</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <div class="tag">Access</div>
+    <h2>Requesting Data</h2>
+    <p>Contributors to the Forest First Land Acquisition Pool receive annual field reports automatically. Researchers, journalists, and institutional partners may request access to specific datasets by writing to us with a brief description of purpose.</p>
+    <p>We share data freely where it does not compromise the security of sensitive wildlife locations (e.g., specific coordinates of rare species sightings or nesting sites).</p>
+    <p>Contact: <a href="mailto:dilip@the-heritage.org">dilip@the-heritage.org</a></p>
+  </section>
+
+  <section>
+    <div class="tag">Limitations</div>
+    <h2>What We Do Not Claim</h2>
+    <p>Forest First does not issue verified carbon credits or certified biodiversity units. Our monitoring is rigorous but not yet third-party certified. We do not use satellite-derived carbon estimates without ground-truth validation. Any figures described as "targeted" on this site are programme goals, not achieved outcomes, unless explicitly stated otherwise.</p>
+    <p>We will update this page as programme status changes and as new data becomes available.</p>
+  </section>
+
+</div>
+
+<footer>
+  <p>
+    © 2026 The Heritage Foundation · Registered Public Charitable Trust · 12A / 80G Status ·
+    <a target="_parent" href="/">Forest First</a> ·
+    <a target="_blank" rel="noopener noreferrer" href="https://the-heritage.org">the-heritage.org</a>
+  </p>
+</footer>
+
+</body>
+</html>
+

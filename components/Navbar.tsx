@@ -7,13 +7,24 @@ export default function Navbar() {
     <nav className="w-full bg-forest text-sand border-b border-moss/20 py-4 px-6 sticky top-0 z-50 backdrop-blur-md bg-forest/95">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
         
-        {/* Serif Institutional Tagline */}
-        <div className="flex items-center gap-2">
-          <span className="serif-header font-semibold text-lg text-white">
-            Forest First
-          </span>
+        {/* Brand Logo & Tagline */}
+        <div className="flex items-center gap-3">
+          <a href="/" className="flex items-center gap-2 select-none hover:opacity-90 transition-opacity">
+            <div className="relative w-[18px] h-[26px] flex-shrink-0">
+              <div className="absolute left-0 top-0 w-[2px] h-full bg-sand"></div>
+              <div className="absolute left-0 top-0 w-full h-[2px] bg-sand"></div>
+              <div className="absolute left-0 top-[45%] -translate-y-1/2 w-[68%] h-[1.5px] bg-amber-accent"></div>
+              <div className="absolute left-0 bottom-0 w-[2px] h-[5px] bg-amber-accent"></div>
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="font-serif font-bold text-sm tracking-[0.18em] text-sand serif-header">FOREST</span>
+              <span className="font-sans font-light text-[0.45rem] tracking-[0.45em] text-sand/50 mt-[2px] flex items-baseline">
+                F<span className="text-amber-accent font-semibold">I</span>RST
+              </span>
+            </div>
+          </a>
           <span className="text-moss text-xs hidden sm:inline">|</span>
-          <span className="text-xs uppercase tracking-widest text-sand/70 font-light font-sans">
+          <span className="text-xs uppercase tracking-widest text-sand/70 font-light font-sans hidden sm:inline">
             An Initiative of The Heritage Foundation
           </span>
         </div>

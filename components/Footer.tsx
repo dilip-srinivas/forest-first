@@ -35,12 +35,29 @@ export default function Footer() {
           
           {/* Brand Info */}
           <div className="md:col-span-5">
-            <h3 className="text-2xl font-bold text-white serif-header mb-4">
-              Forest First
-            </h3>
-            <p className="text-sm text-sand/60 leading-relaxed font-light mb-6 max-w-sm">
+            <div className="flex items-center gap-2 select-none mb-4">
+              <div className="relative w-[22px] h-[32px] flex-shrink-0">
+                <div className="absolute left-0 top-0 w-[2px] h-full bg-sand"></div>
+                <div className="absolute left-0 top-0 w-full h-[2px] bg-sand"></div>
+                <div className="absolute left-0 top-[45%] -translate-y-1/2 w-[68%] h-[1.5px] bg-amber-accent"></div>
+                <div className="absolute left-0 bottom-0 w-[2px] h-[6px] bg-amber-accent"></div>
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="font-serif font-bold text-base tracking-[0.18em] text-sand serif-header">FOREST</span>
+                <span className="font-sans font-light text-[0.5rem] tracking-[0.45em] text-sand/50 mt-[2px] flex items-baseline">
+                  F<span className="text-amber-accent font-semibold">I</span>RST
+                </span>
+              </div>
+            </div>
+            <p className="text-sm text-sand/60 leading-relaxed font-light mb-4 max-w-sm">
               Forest First is a registered ecological restoration initiative wholly operated and governed by The Heritage Foundation.
             </p>
+            <div className="text-xs text-sand/40 leading-relaxed font-light mb-6 max-w-sm border-l border-moss/30 pl-4 py-1">
+              <span className="block font-semibold text-moss">The Heritage Foundation</span>
+              Registered Public Charitable Trust (12A/80G)
+              <span className="block">PAN: AADTT8323J | Est. May 13, 2020</span>
+              <span className="block">Kotagiri, The Nilgiris, Tamil Nadu, India</span>
+            </div>
             <span className="text-xs text-sand/40 block">
               © {new Date().getFullYear()} The Heritage Foundation. All rights reserved.
             </span>
@@ -127,21 +144,21 @@ export default function Footer() {
         {/* Legal disclosures & compliance footer bar */}
         <div className="border-t border-moss/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-sand/40">
           <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center md:justify-start">
-            <a href="https://the-heritage.org/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-sand/70 transition-colors">
+            <a href="/privacy" className="hover:text-sand/70 transition-colors">
               Privacy Policy
             </a>
-            <a href="https://the-heritage.org/terms" target="_blank" rel="noopener noreferrer" className="hover:text-sand/70 transition-colors">
+            <a href="/terms" className="hover:text-sand/70 transition-colors">
               Terms of Custody
             </a>
-            <a href="https://the-heritage.org/scientific-data" target="_blank" rel="noopener noreferrer" className="hover:text-sand/70 transition-colors">
+            <a href="/scientific-data" className="hover:text-sand/70 transition-colors">
               Scientific Data Disclosures
             </a>
-            <a href="https://the-heritage.org/disclosures.html" target="_blank" rel="noopener noreferrer" className="hover:text-sand/70 transition-colors">
+            <a href="/disclosures.html" className="hover:text-sand/70 transition-colors">
               Institutional Disclosures
             </a>
           </div>
           <p className="text-center md:text-right max-w-md leading-relaxed font-light">
-            Disclaimer: Forest First operates as an ecological stewardship cell. Contributions represent contributions towards the Civic Trust land acquisition pool.
+            Forest First is an initiative of The Heritage Foundation, a registered public charitable trust (12A/80G). All contributions are directed towards ecological restoration activities under the Foundation's mandate.
           </p>
         </div>
 
